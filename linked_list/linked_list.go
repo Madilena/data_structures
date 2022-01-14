@@ -77,17 +77,36 @@ func (ll *LinkedList) DeleteWithValue(v interface{}) *LinkedList {
 	}
 	//if the desired node to delete is the next node, set that node's Next property
 	for {
-		if v == node.Next.Data {
-			//check that next node is not second to last in linked list
-			if node.Next.Next != nil {
-				node.Next = node.Next.Next
+		if isNextNodeDesiredNode(v, node) {
+			if isNextNodeNotLast(node) {
+				shiftNodesNextUp(node)
 				break
 			}
 			//if the node to delete is second to last, the new node is now the end of linked list
-			node.Next = nil
+			setNodeAsLast(node)
 			break
 		}
-		node = node.Next
+		shiftNextNodeUp(node)
 	}
 	return ll
+}
+
+func isNextNodeDesiredNode(v interface{}, node *Node) bool {
+	return v == node.Next.Data
+}
+
+func isNextNodeNotLast(node *Node) bool {
+	return node.Next.Next != nil
+}
+
+func shiftNodesNextUp(node *Node) {
+	node.Next = node.Next.Next
+}
+
+func shiftNextNodeUp(node *Node) {
+	node = node.Next
+}
+
+func setNodeAsLast(node *Node) {
+	node.Next = nil
 }

@@ -4,8 +4,19 @@ import "fmt"
 
 func main() {
 	linkedList := NewLinkedList()
-	linkedList.Append(1).Append(2).Append(3).PrintAll()
-	linkedList.DeleteWithValue(2).PrintAll()
+	fmt.Println("\n", "Remember the head is in the stack and the tail is in the heap", "\n")
+
+	fmt.Println("\n", "Adding nodes to linked list", "\n")
+	linkedList.Append(1).Append(2).Append(3).Append(4).Append(5).Append(6).PrintMemoryAddresses()
+
+	fmt.Println("\n", "Just printing again", "\n")
+	linkedList.PrintMemoryAddresses()
+
+	fmt.Println("\n", "Now deleting node with value 2", "\n")
+	linkedList.DeleteWithValue(2).PrintMemoryAddresses()
+
+	fmt.Println("\n", "Now adding a node with value 7", "\n")
+	linkedList.Append(7).PrintMemoryAddresses()
 }
 
 // LinkedList : Data structure
@@ -21,14 +32,15 @@ type Node struct {
 	Next *Node
 }
 
-func (ll *LinkedList) PrintAll() {
+func (ll *LinkedList) PrintMemoryAddresses() {
 	var node = ll.Head
+	fmt.Println("head", node.Data, "has memory address", &node)
 	for {
-		fmt.Println(node.Data)
 		if node.Next == nil {
 			return
 		}
 		node = node.Next
+		fmt.Println("node", node.Data, "has memory address", &node.Next)
 	}
 }
 
@@ -75,8 +87,10 @@ func (ll *LinkedList) DeleteWithValue(v interface{}) *LinkedList {
 		ll.Head = ll.Head.Next
 		return ll
 	}
-	//if the desired node to delete is the next node, set that node's Next property
+
+	//infinite loop
 	for {
+		//if the desired node to delete is the next node, set that node's Next property
 		if isNextNodeDesiredNode(v, node) {
 			if isNextNodeNotLast(node) {
 				shiftNodesNextUp(node)

@@ -62,14 +62,14 @@ func (ll *LinkedList) Append(d interface{}) *LinkedList {
 		Next: nil,
 		Data: d,
 	}
-	updateCurrentNodes(ll, nextNode)
+	updateCurrentTail(ll, nextNode)
 	//set the linked lists' tail to nextNode
 	ll.Tail = nextNode
 	return ll
 }
 
 //first need to handle pre-exinting node's head & tail
-func updateCurrentNodes(ll *LinkedList, nextNode *Node) {
+func updateCurrentTail(ll *LinkedList, nextNode *Node) {
 	//if head is empty, set head to nextNode
 	//otherwise, we set the current tail's Next value to our nextNode
 	if ll.Head.Data == nil {

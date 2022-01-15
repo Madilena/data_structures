@@ -105,22 +105,28 @@ func (ll *LinkedList) DeleteWithValue(v interface{}) *LinkedList {
 	return ll
 }
 
+//we're looking at current node's next property to see if we want to delete the next node
 func isNextNodeDesiredNode(v interface{}, node *Node) bool {
 	return v == node.Next.Data
 }
 
+//we're looking at the next node's next property to see if it is the last node in linked list
 func isNextNodeNotLast(node *Node) bool {
 	return node.Next.Next != nil
 }
 
+//our 'delete' operation is really just making the current node's pointer skip the node we want to delete
+//and that pointer will point to the node after the node we want to delete
 func shiftNodesNextUp(node *Node) {
 	node.Next = node.Next.Next
 }
 
+//we're going to set the current node to the next node
 func shiftNextNodeUp(node *Node) {
 	node = node.Next
 }
 
+//the last node in the linked list need's to have nil as its next property
 func setNodeAsLast(node *Node) {
 	node.Next = nil
 }

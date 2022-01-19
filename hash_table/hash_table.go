@@ -43,7 +43,7 @@ func (h *HashTable) Delete(key string) {
 func (b *bucket) insert(k string) {
 	//if key is not already in bucket
 	if !b.search(k) {
-		//create bucket node with key
+		//create bucketNode with key
 		//new node we want to insert will be the head
 		newNode := &bucketNode{key: k}
 		//set new node as head and set the next of new node to the head that was there before

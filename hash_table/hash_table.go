@@ -103,7 +103,7 @@ func hash(key string) int {
 	for _, v := range key {
 		sum += int(v)
 	}
-	fmt.Println(key, "has ASCII code sum:", sum, " and will be at index ", sum%ArraySize)
+	fmt.Println(key, "has ASCII code sum:", sum, "and will be at index", sum%ArraySize)
 	return sum % ArraySize
 }
 

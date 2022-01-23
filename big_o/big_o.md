@@ -2,6 +2,10 @@
 
 These are my misc. notes on big O
 
+Big O means order of the function
+Big O is the worst case estimate of time and space complexity
+Big Theta = best case
+
 ## O(1) -> Constant Time
 
 Example: getting an index from an array

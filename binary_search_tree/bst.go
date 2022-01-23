@@ -25,33 +25,42 @@ type Node struct {
 }
 
 func (n *Node) Insert(k int) {
-	n.moveChildLeft(k)
-	n.moveChildRight(k)
+	if n.keyIsGreaterThanParent(k) {
+		n.moveKeyToRightChild(k)
+	} else if n.keyIsSmallerThanParent(k) {
+		n.moveKeyToLeftChild(k)
+	}
 }
 
 type MoveChild interface {
-	moveChildLeft()
-	moveChildRight()
+	moveKeyToLeftChild()
+	moveKeyToRightChild()
+	keyIsSmallerThanParent()
+	keyIsGreaterThanParent()
 }
 
-func (n *Node) moveChildRight(k int) {
-	if n.Key < k {
-		//move right
-		if n.Right == nil {
-			n.Right = &Node{Key: k}
-		} else {
-			n.Right.Insert(k)
-		}
+func (n *Node) keyIsSmallerThanParent(k int) bool {
+	//n.Key == parent
+	return k < n.Key
+}
+
+func (n *Node) keyIsGreaterThanParent(k int) bool {
+	//n.Key == parent
+	return k > n.Key
+}
+
+func (n *Node) moveKeyToRightChild(k int) {
+	if n.Right == nil {
+		n.Right = &Node{Key: k}
+	} else {
+		n.Right.Insert(k)
 	}
 }
-func (n *Node) moveChildLeft(k int) {
-	if n.Key > k {
-		//move left
-		if n.Left == nil {
-			n.Left = &Node{Key: k}
-		} else {
-			n.Left.Insert(k)
-		}
+func (n *Node) moveKeyToLeftChild(k int) {
+	if n.Left == nil {
+		n.Left = &Node{Key: k}
+	} else {
+		n.Left.Insert(k)
 	}
 }
 

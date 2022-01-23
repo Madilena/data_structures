@@ -16,6 +16,7 @@ These are my misc. notes on the heap data structure
 This explains [optimizing heap building](https://stackoverflow.com/questions/9755721/how-can-building-a-heap-be-on-time-complexity)
 
 Notice that only one node is at the top whereas half the nodes lie in the bottom layer. So, if we have to apply an operation to every node we would prefer to start at the end of the array and sift down (towards index=0) over siftUp. startIndex is last non-leaf node (array_length/2 - 1)
+When we implement the sift down method, we have O(n). Sift up is O(logn)
 
 ## Details on running heap.go
 

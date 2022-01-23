@@ -29,3 +29,8 @@ The most common attributes of logarithmic running-time function are that:
 - the elements on which the action is performed are digits of n
 
 ![Alt text](big_o.png?raw=true"Title")
+
+## Data structure examples
+
+From [big o cheat sheet](https://www.bigocheatsheet.com/)
+![Alt text](big_o_cheat_sheet.png?raw=true"Title")

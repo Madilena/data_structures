@@ -36,3 +36,15 @@
 - almost always incorrect to begin the decomposition of a system into modules on the basis of a flowchart. ie making each major step in the processing a module. This is wrong.
 
 * Start with a list of difficult design decisions or design decisions which are likely to change
+
+## clean code by Bob Martin mentions this
+
+- objects expose functions and hide their data
+  - obejcts hide their data behind abstractions and expose functions that operate on that data
+- data structures expose data and have no significant behavior
+
+  - data structures expose their data and have no meaningful functions
+
+- a class does not simply push its variables out through getters and setters. Rather it exposes abstract interfaces that allow its users to maniuplate the essence of the data without having to know its implementation
+
+* interfaces are all about de- coupling. we use interfaces to guarantee some functionality. exactly how that functionality is implemented does not affect the caller of the interface

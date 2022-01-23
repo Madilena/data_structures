@@ -14,6 +14,7 @@ func main() {
 	fmt.Println(tree)
 	fmt.Println(tree.Search(75))
 	fmt.Println(count)
+	fmt.Println(maxDepth(tree))
 }
 
 //each node will be a parent
@@ -37,6 +38,20 @@ type MoveChild interface {
 	moveKeyToRightChild()
 	keyIsSmallerThanParent()
 	keyIsGreaterThanParent()
+}
+
+func maxDepth(n *Node) int {
+	if n == nil {
+		return -1
+	}
+	lDepth := maxDepth(n.Left)
+	rDepth := maxDepth(n.Right)
+
+	if lDepth > rDepth {
+		return lDepth + 1
+	} else {
+		return rDepth + 1
+	}
 }
 
 func (n *Node) keyIsSmallerThanParent(k int) bool {

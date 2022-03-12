@@ -29,13 +29,13 @@ also referenced the article, [The SOLID principles in Pictures](https://medium.c
 
 ## liskov substitution principle
 
+- this helps us prevent model hierarchies that don't conform to the Open/Closed principle.
+- Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it.
+
+* The child Class should be able to process the same requests and deliver the same result as the parent Class or it could deliver a result that is of the same type.
+  If the child Class doesn't meet these requirements, it means the child Class is changed completely and violates this principle.
+
 - This is about sub-typing. All implementations of interfaces are subtypes of an interface. A program that uses an interface must not be confused by an implementation of that interface.
-
-* this helps us prevent model hierarchies that don't conform to the Open/Closed principle.
-* Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it.
-
-The child Class should be able to process the same requests and deliver the same result as the parent Class or it could deliver a result that is of the same type.
-If the child Class doesn't meet these requirements, it means the child Class is changed completely and violates this principle.
 
 ## interface segregation principle
 
@@ -45,7 +45,7 @@ If the child Class doesn't meet these requirements, it means the child Class is 
 
 - Depend in the direction of abstraction. High level modules should not depend upon low level details.
 
-High-level Module(or Class): Class that executes an action with a tool.
-Low-level Module (or Class): The tool that is needed to execute the action
-Abstraction: Represents an interface that connects the two Classes.
-Details: How the tool works
+* High-level Module(or Class): Class that executes an action with a tool.
+* Low-level Module (or Class): The tool that is needed to execute the action
+* Abstraction: Represents an interface that connects the two Classes.
+* Details: How the tool works
